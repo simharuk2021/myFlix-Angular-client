@@ -1,6 +1,6 @@
 // src/app/movie-card/movie-card.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service'
+import { FetchApiDataService } from '../fetch-api-data.service';
 
 @Component({
   selector: 'app-movie-card',
