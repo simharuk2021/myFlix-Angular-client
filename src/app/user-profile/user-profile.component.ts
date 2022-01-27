@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   user: any= {};
+  favMov: any= [];
+  favorites: any[] = [];
+  movies: any [] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -23,6 +26,8 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserInfo();
+    this.getFav();
+    this.getMovies();
   }
 
   getUserInfo(): void {
@@ -32,6 +37,29 @@ export class UserProfileComponent implements OnInit {
       this.user = res;
     });
   } 
-
 }
+  getFav(): void {
+    const user = localStorage.getItem('user');
+    this.fetchApiData.getUser(user).subscribe((res: any) => {
+      this.favorites = res.FavoriteMovies;
+      return this.filterMovies();
+    });
+  } 
+
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((res: any) => {
+      this.movies = res;
+      console.log(this.movies);
+      return this.movies;
+    });
+  }
+
+  filterMovies(): void {
+    this.movies.forEach((movie: any) => {
+    if (this.favorites.includes(movie._id)) {
+      this.favMov.push(movie);
+    }
+  });
+  return this.favMov;
+  }
 }

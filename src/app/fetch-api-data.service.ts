@@ -6,6 +6,13 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://my-movies-souperapp.herokuapp.com/';
+export interface User {
+  _id:string;
+  FavoriteMovies:Array<string>;
+  Username:string;
+  Email:string;
+  Birthday:string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -115,11 +122,24 @@ editUser(userDetails: any): Observable<any> {
   );
 }
 
+getFavoriteMovies(username: any): Observable<any>{
+  const token = localStorage.getItem('token');
+  return this.http.get(apiUrl + 'users/' + username + 'FavoriteMovies', {
+    headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })
+  }).pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
+}
+
 // Making the API call for adding movies to a user's favorites
 addFavoriteMovies(movieId: any): Observable<any> {
   const username = localStorage.getItem('user')
   const token = localStorage.getItem('token');
-  return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieId, {
+  return this.http.post(apiUrl + 'users/' + username + 'FavoriteMovies/' + movieId, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
@@ -134,7 +154,7 @@ addFavoriteMovies(movieId: any): Observable<any> {
 deleteMovie(movieId: any): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
-  return this.http.delete(apiUrl + 'users/' + username + '/movies/' + movieId, {
+  return this.http.delete(apiUrl + 'users/' + username + 'FavoriteMovies/' + movieId, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
