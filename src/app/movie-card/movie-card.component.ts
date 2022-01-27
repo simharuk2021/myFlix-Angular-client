@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
+import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -45,4 +46,11 @@ openGenreDialog(Name: string, Description: string): void {
       width: '300px',
     });
     }
+
+openSynopsisDialog(Title: string, Description: string): void {
+  this.dialog.open(SynopsisDialogComponent, {
+      data: { Title, Description},
+      width: '300px',
+        });
+        }
 }

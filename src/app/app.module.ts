@@ -22,6 +22,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
 import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
+import { SynopsisDialogComponent } from './synopsis-dialog/synopsis-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     DirectorDialogComponent,
-    GenreDialogComponent
+    GenreDialogComponent,
+    SynopsisDialogComponent
   ],
   imports: [
     BrowserModule,
