@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
@@ -23,11 +24,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
 import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
 import { SynopsisDialogComponent } from './synopsis-dialog/synopsis-dialog.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UserProfileComponentComponent } from './user-profile-component/user-profile-component.component';
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  // { path: 'profile', component: UserCardComponent },
 
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
@@ -41,7 +45,9 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     DirectorDialogComponent,
     GenreDialogComponent,
-    SynopsisDialogComponent
+    SynopsisDialogComponent,
+    NavBarComponent,
+    UserProfileComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatToolbarModule,
     MatSnackBarModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes)

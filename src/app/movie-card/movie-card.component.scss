@@ -12,10 +12,9 @@ mat-card {
     font-family: 'Work Sans', sans-serif;
 }
 
-mat-card-title {
-    font-family: 'Acme', sans-serif;
-    color: steelblue
-}
+.mat-card-title {
+    color: rgb(192, 109, 109);
+  }
 
 img {
     width: 300px;
