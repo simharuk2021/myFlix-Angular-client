@@ -1,34 +1,77 @@
-.user-profile-wrapper {
+ 
+.profile-div {
+    font-family: 'Work Sans', sans-serif;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 50px
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+.favorited-div {
+    background-color: #D9D7F1;
+    padding: 30px;
+    border-radius: 20px;
+    border: 4px groove #FFF;
+}
+
+h2 {
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+}
+
+li {
+    font-size: 20px;
+}
+
+.details-div {
+    max-width: 400px;
+    background-color: #E1E8EB;
+    padding: 16px;
+    border-radius: 20px;
+    font-size: 17px;
+    border: 4px groove #FFF;
 }
 
 mat-card {
-    width: 500px;
-    padding: 30px;
-    background-color: #3F51B5;
-    color:white;
-    justify-content: center;
+    background-color: #EEEBDD;
+    font-family: 'Acme', sans-serif;
+    max-width: 400px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 4px groove #FFF;
 }
 
-mat-card-header{
-    justify-content: center;
-    color:#FF4081;
+mat-card-content {
+    margin: 16px;
 }
 
-.content-container{
-    font-size: 16px;
-    margin-top:50px;
-    margin-left:50px;
+input {
+    font-size: 17px;
 }
 
-mat-icon{
-    margin-right: 10px;
-}
+@media screen and (max-width: 900px) {
+    .profile-div {
+        flex-direction: column;
+    }
 
-.profile-title{
-    justify-content:space-between;
-    padding:15px
+    .favorited-div {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    li {
+        font-size: 18px;
+    }
+
+    .details-div {
+        font-size: 15px;
+    }
+
+    input {
+        font-size: 15px;
+    }
 }

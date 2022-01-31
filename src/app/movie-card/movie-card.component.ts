@@ -16,6 +16,7 @@ import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.comp
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  favorited: any[] = []
   constructor(
   public fetchApiData: FetchApiDataService,
   public dialog: MatDialog,
@@ -24,6 +25,7 @@ export class MovieCardComponent {
 
 ngOnInit(): void {
   this.getMovies();
+  this.getFavorites()
 }
 
 getMovies(): void {
@@ -53,4 +55,59 @@ openSynopsisDialog(Title: string, Description: string): void {
       width: '300px',
         });
         }
+/**
+   * Retrieves the logged in user's favorited movies
+   * @returns filterFavorites() function which filters the favorited movies
+   */
+ getFavorites(): void {
+  const user = localStorage.getItem('user');
+  this.fetchApiData.getUser(user).subscribe((resp: any) => {
+    this.favorited = resp.FavoriteMovies;
+    console.log(this.favorited);
+    return this.favorited;
+  });
+}
+  /**
+   * Adds a movie to logged in user's favorited movies
+   * @param movieId {string}
+   */
+   addFavMovie(movieID: string): void {
+    this.fetchApiData.addFavoriteMovies(movieID).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open(`Successfully added to your favorites list`, 'OK', {
+        duration: 4000,
+      });
+      this.getFavorites()
+      this.ngOnInit();
+    });
+  }
+
+  /**
+   * Removes a movie from logged in user's favorited movies
+   * @param movieId {string}
+   */
+  removeFavMovie(movieID: string): void {
+    this.fetchApiData.deleteMovie(movieID).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open(`Successfully removed from your favorites list`, 'OK', {
+        duration: 4000,
+      });
+      this.getFavorites()
+      this.ngOnInit();
+    });
+  }
+
+  /**
+   * Checks whether or not a movies is in the logged in user's favorited movies 
+   * @param movieId {string}
+   * @returns true or false
+   */
+  inFavorited(movieID: string): boolean {
+    if (this.favorited.includes(movieID)) {
+      return true;
+    } else {
+      return false;
+    }
+  }        
+
 }

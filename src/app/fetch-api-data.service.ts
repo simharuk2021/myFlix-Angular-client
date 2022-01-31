@@ -108,10 +108,10 @@ getUser(username: any): Observable<any> {
 }
 
 // Making the API call for editing a user's profile
-editUser(userDetails: any): Observable<any> {
+editUser(userData: any): Observable<any> {
   const username = localStorage.getItem('user')
   const token = localStorage.getItem('token');
-  return this.http.put(apiUrl + 'users/' + username, userDetails, {
+  return this.http.put(apiUrl + 'users/' + username, userData, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
@@ -124,7 +124,7 @@ editUser(userDetails: any): Observable<any> {
 
 getFavoriteMovies(username: any): Observable<any>{
   const token = localStorage.getItem('token');
-  return this.http.get(apiUrl + 'users/' + username + 'FavoriteMovies', {
+  return this.http.get(apiUrl + 'users/' + username + '/FavoriteMovies', {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
@@ -139,7 +139,7 @@ getFavoriteMovies(username: any): Observable<any>{
 addFavoriteMovies(movieId: any): Observable<any> {
   const username = localStorage.getItem('user')
   const token = localStorage.getItem('token');
-  return this.http.post(apiUrl + 'users/' + username + 'FavoriteMovies/' + movieId, {
+  return this.http.post(apiUrl + 'users/' + username + '/FavoriteMovies/' + movieId, null, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
