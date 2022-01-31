@@ -2,8 +2,8 @@
 <div class="profile-div">
     <div class="favorited-div">
         <h2>Favorited Movies</h2>
-        <ul *ngFor="let title of favoritedTitle;">
-            <li>{{title}}</li>
+        <ul *ngFor="let movie of favoritedTitle;">
+            <li>{{movie.Title}}</li>
         </ul>
     </div>
     <div>
@@ -40,6 +40,13 @@
                 <button mat-raised-button (click)="editUserInfo()" color="primary">
                     Save Changes
                 </button>
+                <button
+                mat-raised-button
+                (click)="openUserDeleteDialog()"
+                color="primary"
+            >
+                Delete profile
+            </button>
             </mat-card-actions>
         </mat-card>
     </div>

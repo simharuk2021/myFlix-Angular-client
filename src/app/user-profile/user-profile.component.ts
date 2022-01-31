@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteCardComponent } from '../delete-card/delete-card.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
@@ -28,6 +30,7 @@ export class UserProfileComponent implements OnInit {
    */
   constructor(
     public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
 
@@ -72,7 +75,7 @@ export class UserProfileComponent implements OnInit {
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.favorited.includes(movie._id)) {
-        this.favoritedTitle.push(movie.Title);
+        this.favoritedTitle.push(movie);
       }
     });
     console.log(this.favoritedTitle);
@@ -117,4 +120,13 @@ export class UserProfileComponent implements OnInit {
       });
     })
   }
+   /**
+   * Opens the deletion dialog
+   */
+    openUserDeleteDialog(): void {
+      this.dialog.open(DeleteCardComponent, {
+        width: '280px'
+      });
+    }
 }
+  

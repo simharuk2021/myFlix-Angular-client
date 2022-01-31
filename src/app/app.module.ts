@@ -26,6 +26,7 @@ import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
 import { SynopsisDialogComponent } from './synopsis-dialog/synopsis-dialog.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
+import { DeleteCardComponent } from './delete-card/delete-card.component';
 
 
 const appRoutes: Routes = [
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     SynopsisDialogComponent,
     NavBarComponent,
     UserProfileComponent,
+    DeleteCardComponent,
   ],
   imports: [
     BrowserModule,

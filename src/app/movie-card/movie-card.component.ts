@@ -84,7 +84,7 @@ openSynopsisDialog(Title: string, Description: string): void {
 
   /**
    * Removes a movie from logged in user's favorited movies
-   * @param movieId {string}
+   * @param movieID {string}
    */
   removeFavMovie(movieID: string): void {
     this.fetchApiData.deleteMovie(movieID).subscribe((resp: any) => {
@@ -99,7 +99,7 @@ openSynopsisDialog(Title: string, Description: string): void {
 
   /**
    * Checks whether or not a movies is in the logged in user's favorited movies 
-   * @param movieId {string}
+   * @param movieID {string}
    * @returns true or false
    */
   inFavorited(movieID: string): boolean {
