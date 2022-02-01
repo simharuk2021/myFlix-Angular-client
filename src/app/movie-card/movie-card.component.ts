@@ -36,6 +36,8 @@ getMovies(): void {
     });
   }
 
+
+  
 openDirectorDialog(Name: string, Bio: string, Birth: string): void {
   this.dialog.open(DirectorDialogComponent, {
       data: { Name, Bio, Birth },
@@ -76,9 +78,10 @@ openSynopsisDialog(Title: string, Description: string): void {
       console.log(resp);
       this.snackBar.open(`Successfully added to your favorites list`, 'OK', {
         duration: 4000,
+        panelClass: ['added-to-favorites'],
       });
-      this.getFavorites()
-      this.ngOnInit();
+      // this.getFavorites()
+      // this.ngOnInit();
     });
   }
 
@@ -92,8 +95,8 @@ openSynopsisDialog(Title: string, Description: string): void {
       this.snackBar.open(`Successfully removed from your favorites list`, 'OK', {
         duration: 4000,
       });
-      this.getFavorites()
-      this.ngOnInit();
+      // this.getFavorites()
+      // this.ngOnInit();
     });
   }
 

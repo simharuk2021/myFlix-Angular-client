@@ -25,7 +25,7 @@ export class DeleteCardComponent implements OnInit {
   deleteUser(): void {
     const user = localStorage.getItem('user');
       this.fetchApiData.deleteUser().subscribe((res: any) => {
-      this.snackbar.open(`User profile ${user} has been deleted`, 'OK', {
+      this.snackbar.open(`User profile has been deleted`, 'OK', {
         duration: 2000
       });
     });

@@ -1,15 +1,13 @@
-.home-page {
-    display: flex; 
+
+.movie-container {
+    display: flex;
     flex-wrap: wrap;
-    padding: 26px;
     justify-content: center;
-}
+    // flex-direction: column;
+  }
 
 mat-card {
-    flex: 1 1 auto;
-    margin: 7px;
-    text-align: center;
-    font-family: 'Work Sans', sans-serif;
+    width: 320px;
 }
 
 .mat-card-title {
@@ -24,13 +22,12 @@ img {
     color:#3F51B5;
 }
 
+.added-to-favorites {
+    color: #FF4081;
+}
+
 @media screen and (max-width: 840px) {
     mat-card {
         max-width: 350px;
-    }
-
-    img {
-        width: 250px;
-        height: 370px;
     }
 }

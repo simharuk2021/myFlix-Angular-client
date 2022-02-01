@@ -1,6 +1,6 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <app-nav-bar></app-nav-bar>
-<div style="display: flex;">
+<div class="movie-container">
     <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>
@@ -29,7 +29,7 @@
             favorite_border
         </mat-icon>
         <mat-icon *ngIf="inFavorited(movie._id)" (click)="removeFavMovie(movie._id)">
-            favorite
+            favorite_filled
         </mat-icon>
         </mat-card-actions>
     </mat-card>

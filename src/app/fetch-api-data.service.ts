@@ -154,7 +154,7 @@ addFavoriteMovies(movieId: any): Observable<any> {
 deleteMovie(movieID: any): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
-  return this.http.delete(apiUrl + 'users/' + username + 'FavoriteMovies/' + movieID, {
+  return this.http.delete(apiUrl + 'users/' + username + '/FavoriteMovies/' + movieID, {
     headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,

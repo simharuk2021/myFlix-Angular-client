@@ -82,6 +82,12 @@ export class UserProfileComponent implements OnInit {
     return this.favoritedTitle;
   }
 
+  removeFavorite(id: string): void {
+    this.fetchApiData.deleteMovie(id).subscribe((resp: any) => {
+      location.reload();
+    })
+  }
+
   /**
    * Get user info of the logged in user
    * @returns the user state which includes the info of the logged in user

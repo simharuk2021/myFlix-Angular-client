@@ -8,6 +8,9 @@
             <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
         </mat-card-header>
         <img src={{movie.ImagePath}} />
+        <mat-card-actions>
+            <mat-icon (click)="removeFavorite(movie._id)">favorite_filled</mat-icon>
+        </mat-card-actions>
         </mat-card>
     </div>
     <div>
