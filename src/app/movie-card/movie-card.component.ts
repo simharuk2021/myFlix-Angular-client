@@ -16,7 +16,7 @@ import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.comp
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  favorited: any[] = []
+  favorited: any[] = [];
   constructor(
   public fetchApiData: FetchApiDataService,
   public dialog: MatDialog,
