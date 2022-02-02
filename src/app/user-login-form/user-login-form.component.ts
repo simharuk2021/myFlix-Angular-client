@@ -43,7 +43,7 @@ loginUser(): void {
       console.log(result)
   // Logic for a successful user login goes here! (To be implemented)
      this.dialogRef.close(); // This will close the modal on success!
-     this.snackBar.open(result, 'Login Successfull', {
+     this.snackBar.open(result.user.Username, 'Login Successfull', {
         duration: 2000
      });
      this.router.navigate(['movies'])
