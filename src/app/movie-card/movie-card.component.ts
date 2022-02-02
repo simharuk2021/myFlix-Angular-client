@@ -14,9 +14,10 @@ import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.comp
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit{
   movies: any[] = [];
   favorited: any[] = [];
+  user: any[] = [];
   constructor(
   public fetchApiData: FetchApiDataService,
   public dialog: MatDialog,
@@ -36,8 +37,6 @@ getMovies(): void {
     });
   }
 
-
-  
 openDirectorDialog(Name: string, Bio: string, Birth: string): void {
   this.dialog.open(DirectorDialogComponent, {
       data: { Name, Bio, Birth },
@@ -80,8 +79,8 @@ openSynopsisDialog(Title: string, Description: string): void {
         duration: 4000,
         panelClass: ['added-to-favorites'],
       });
-      // this.getFavorites()
-      // this.ngOnInit();
+      this.getFavorites();
+      this.ngOnInit();
     });
   }
 
@@ -95,14 +94,14 @@ openSynopsisDialog(Title: string, Description: string): void {
       this.snackBar.open(`Successfully removed from your favorites list`, 'OK', {
         duration: 4000,
       });
-      // this.getFavorites()
-      // this.ngOnInit();
+      this.getFavorites();
+      this.ngOnInit();
     });
   }
 
   /**
    * Checks whether or not a movies is in the logged in user's favorited movies 
-   * @param movieID {string}
+   * @param movieId {string}
    * @returns true or false
    */
   inFavorited(movieID: string): boolean {
