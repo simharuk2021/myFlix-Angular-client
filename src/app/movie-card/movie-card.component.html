@@ -25,12 +25,10 @@
                 color="primary"
             >Synopsis
         </button>
-        <mat-icon *ngIf="!inFavorited(movie._id)" (click)="addFavMovie(movie._id)">
-            favorite_border
-        </mat-icon>
-        <mat-icon *ngIf="inFavorited(movie._id)" (click)="removeFavMovie(movie._id)">
-            favorite_filled
-        </mat-icon>
+        <button mat-icon-button (click)="toggleFavorite(movie)">
+            <mat-icon *ngIf="!isFavorite(movie._id)"> favorite_border </mat-icon>
+            <mat-icon *ngIf="isFavorite(movie._id)"> favorite </mat-icon>
+          </button>
         </mat-card-actions>
     </mat-card>
 </div>
