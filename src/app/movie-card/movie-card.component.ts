@@ -13,15 +13,38 @@ import { SynopsisDialogComponent } from '../synopsis-dialog/synopsis-dialog.comp
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
+
+  /**
+   * variable to store the movies
+  */
+
   movies: any = [];
+
+  /**
+   * variable to store the Favorite Movies
+  */
   FavoriteMovies: any[] = [];
+
+  /**
+   * variable to store the user
+  */
   user: any[] = [];
+
+  
+  /**
+    * All constructor items are documented as properties
+    * @ignore
+  */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar
   ) {}
 
+  // ngOnInit method is called once the component has received all its inputs (all its data-bound properties)
+  /**
+   * When components mounts, run {@link getMovies} and load user data from localStorage
+   */
   ngOnInit(): void {
     this.getMovies();
     this.getFavoriteMovies();
@@ -43,6 +66,7 @@ export class MovieCardComponent implements OnInit {
   /**
    * get an array of the user's favorite movies from user's data
    */
+
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -68,7 +92,6 @@ export class MovieCardComponent implements OnInit {
    * @param name {string}
    * @param bio {string}
    * @param birth {string}
-   * @param death {string}
    */
   openDirectorDialog(
     name: string,
@@ -95,7 +118,7 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * use API end-point to add user favorite movie
-   * @function addFavoriteMovie
+   * @function addFavoriteMovies
    * @param MovieID {string}
    * @param title {string}
    * @returns an array of the movie object in json format
@@ -112,8 +135,8 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * use API end-point to remove user favorite
-   * @function deleteFavoriteMovie
-   * @param MovieId {string}
+   * @function deleteMovie
+   * @param MovieId{string}
    * @param title {string}
    * @returns updated user's data in json format
    */
@@ -144,7 +167,7 @@ export class MovieCardComponent implements OnInit {
   /**
    * toggle add/remove user's favorite function.
    * if the movie is not on the favorite list, call ...
-   * @function addFavoriteMovie
+   * @function addFavoriteMovies
    * if the movie is already on the user favorite list, call ...
    * @function removeFavoriteMovie
    * @param movie {any}

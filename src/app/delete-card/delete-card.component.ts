@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class DeleteCardComponent implements OnInit {
 
+   /**
+    * All constructor items are documented as properties
+    * @ignore
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackbar: MatSnackBar,
@@ -20,7 +25,7 @@ export class DeleteCardComponent implements OnInit {
   }
 
   /**
-   * Deletes the user
+   * Deletes the user and navigates to the welcome page
    */
   deleteUser(): void {
     const user = localStorage.getItem('user');

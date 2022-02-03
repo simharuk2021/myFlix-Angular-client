@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If the project has been cloned then run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+There is a now a fully funtional version hosted at (https://simharuk2021.github.io/myFlix-Angular-client/welcome)
 
 ## Build
 
@@ -19,6 +21,12 @@ Added using `Angular Material` as the UI component library - the basic component
 `ng generate component user-registration-form` - creates user registration form
 `ng generate component user-login-form` - creates user login form
 
+## User Stories
+
+As a user, I want to be able to receive information on movies, directors, and genres so that I
+can learn more about movies I’ve watched or am interested in.
+
+As a user, I want to be able to create a profile so I can save data about my favorite movies.
 
 ## Further help
 

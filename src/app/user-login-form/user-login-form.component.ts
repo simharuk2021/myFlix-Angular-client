@@ -21,9 +21,15 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
 
+   /**
+   * get input values then store in userData
+   */
   @Input() userData = { Username: '', Password: ''};
 
-
+  /**
+    * All constructor items are documented as properties
+    * @ignore
+   */
 constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -34,7 +40,13 @@ constructor(
 ngOnInit(): void {
 }
 
-// This is the function responsible for sending the form inputs to the backend
+ /**
+   * use API end-point to login the user by getting data from the input.
+   * Then sotes the user's data in localstorage
+   * @function userLogin
+   * @param userData {object}
+   * @return user's data 
+   */
 loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       // set user and token to local storage

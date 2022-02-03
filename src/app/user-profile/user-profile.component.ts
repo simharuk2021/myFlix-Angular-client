@@ -24,9 +24,8 @@ export class UserProfileComponent implements OnInit {
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' }
 
   /**
-   * Called when creating an instance of the class
-   * @param fetchApiData 
-   * @param snackBar 
+    * All constructor items are documented as properties
+    * @ignore
    */
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -44,8 +43,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   /**
-   * Retrieves all movies from database
-   * @returns the movies state which is an array including all the movies
+   * use Api call to get data of all movies
+   * @function getAllMovies
+   * @return movies 
    */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -56,7 +56,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   /**
-   * Retrieves the logged in user's favorited movies
+   * @function getAllMovies Retrieves the logged in user's favorited movies
    * @returns filterFavorites() function which filters the favorited movies
    */
   getFavorites(): void {
@@ -82,6 +82,12 @@ export class UserProfileComponent implements OnInit {
     return this.favoritedTitle;
   }
 
+   /**
+   * use API end-point to remove user favorite
+   * @function deleteMovie
+   * @param MovieId{string}
+   * @returns updated user's data in json format
+   */
   removeFavorite(id: string): void {
     this.fetchApiData.deleteMovie(id).subscribe((resp: any) => {
       location.reload();
@@ -112,6 +118,12 @@ export class UserProfileComponent implements OnInit {
       Birthday: this.userData.Birthday ? this.userData.Birthday : this.user.Birthday,
     }
 
+     /**
+   * use API end-point to edit user data and return the user update
+   * @function editUser
+   * @param updatedData{string}
+   * @returns updated user's data
+   */
     this.fetchApiData.editUser(updatedData).subscribe((resp: any) => {
       console.log(resp)
       this.snackBar.open("You have updated your profile", "OK", {
